@@ -1,0 +1,349 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2023-10-06T15:50:00.193Z",
+    "__export_source": "insomnia.desktop.app:v2023.2.0",
+    "resources": [
+        {
+            "_id": "req_dfdb64af7dbe4c4196447c369e726978",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696606559620,
+            "created": 1696578947124,
+            "url": "{{base_url}}/resources",
+            "name": "Capacités du service",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1696578857716.914,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_da338e764300447e83bd3b8581f5f063",
+            "parentId": null,
+            "modified": 1696605414523,
+            "created": 1696605414523,
+            "name": "Altimétrie",
+            "description": "",
+            "scope": "design",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_3fa279e684e248f0a925e3634844748a",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696606554875,
+            "created": 1696579184372,
+            "url": "{{base_url}}/resources/{{resource}}",
+            "name": "Détails d'une couche",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1696578842522.7812,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d9f8a510d6c2496ebcd78c4b20ce865e",
+            "parentId": "fld_e93b5a2572f34f47bb97db1a7b9c2f7f",
+            "modified": 1696606936217,
+            "created": 1696580772522,
+            "url": "{{base_url}}/calcul/alti/rest/elevation.json",
+            "name": "Via les paramètres de requête",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_ddb71c9a1ce0404dadfbd7fbf59d8209",
+                    "name": "resource",
+                    "value": "{{resource}}",
+                    "description": ""
+                },
+                {
+                    "id": "pair_1238064d97aa4474aaa1f32353e61683",
+                    "name": "lon",
+                    "value": "8.71367499;9.15833834",
+                    "description": ""
+                },
+                {
+                    "id": "pair_10b1db4d815e4945bb921bfc60c567a4",
+                    "name": "lat",
+                    "value": "41.94158511;42.30383634",
+                    "description": ""
+                },
+                {
+                    "id": "pair_1bae0c5668d84b86943a826d291c1c0c",
+                    "name": "indent",
+                    "value": "false",
+                    "description": "",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_98b61ad02974487d83078b3358eca299",
+                    "name": "measures",
+                    "value": "false",
+                    "description": ""
+                },
+                {
+                    "id": "pair_4c5a11cb404045a7a6617e8c28f9fd1a",
+                    "name": "delimiter",
+                    "value": ";",
+                    "description": ""
+                },
+                {
+                    "id": "pair_d9c5d40f6c754b37a9e5f17fbc7ad689",
+                    "name": "zonly",
+                    "value": "true",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1693891957141.455,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_e93b5a2572f34f47bb97db1a7b9c2f7f",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696606613006,
+            "created": 1696578183214,
+            "name": "Demande d'altitudes",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1696578832393.3594,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_e3b45874c9484ebf8878b1110b04e3d5",
+            "parentId": "fld_e93b5a2572f34f47bb97db1a7b9c2f7f",
+            "modified": 1696606945466,
+            "created": 1696586655221,
+            "url": "{{base_url}}/calcul/alti/rest/elevation.json",
+            "name": "Via le corps de requête",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"lon\": \"8.71367499|9.15833834\",\n  \"lat\": \"41.94158511|42.30383634\",\n  \"resource\": \"{{resource}}\",\n  \"delimiter\": \"|\",\n  \"indent\": \"true\",\n  \"measures\": \"true\",\n  \"zonly\": \"false\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_3f31207531f44ef3a6ae6e2a90ca7865"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1693887905264.4717,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e5c2f1061bba4e4cb9d150545e2fbad1",
+            "parentId": "fld_aa33bb3d68d94733b108d6fb01d27626",
+            "modified": 1696607036341,
+            "created": 1696586723661,
+            "url": "{{base_url}}/calcul/alti/rest/elevationLine.json",
+            "name": "Via les paramètres de requête",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_ddb71c9a1ce0404dadfbd7fbf59d8209",
+                    "name": "resource",
+                    "value": "{{resource}}",
+                    "description": ""
+                },
+                {
+                    "id": "pair_1238064d97aa4474aaa1f32353e61683",
+                    "name": "lon",
+                    "value": "8.71367499,9.15833834",
+                    "description": ""
+                },
+                {
+                    "id": "pair_10b1db4d815e4945bb921bfc60c567a4",
+                    "name": "lat",
+                    "value": "41.94158511,42.30383634",
+                    "description": ""
+                },
+                {
+                    "id": "pair_1bae0c5668d84b86943a826d291c1c0c",
+                    "name": "indent",
+                    "value": "true",
+                    "description": ""
+                },
+                {
+                    "id": "pair_98b61ad02974487d83078b3358eca299",
+                    "name": "measures",
+                    "value": "false",
+                    "description": ""
+                },
+                {
+                    "id": "pair_4c5a11cb404045a7a6617e8c28f9fd1a",
+                    "name": "delimiter",
+                    "value": ",",
+                    "description": ""
+                },
+                {
+                    "id": "pair_daca3479ffed4496b7f520e1bb63ed25",
+                    "name": "sampling",
+                    "value": "5",
+                    "description": ""
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1693851438371.621,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_aa33bb3d68d94733b108d6fb01d27626",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696606628565,
+            "created": 1696586723639,
+            "name": "Demande de profils altimétrique",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1696578822263.9375,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_ca23876d5670472192baea1a0a661c34",
+            "parentId": "fld_aa33bb3d68d94733b108d6fb01d27626",
+            "modified": 1696606820598,
+            "created": 1696587230624,
+            "url": "{{base_url}}/calcul/alti/rest/elevationLine.json",
+            "name": "Via le corps de requête",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"lon\": \"8.71367499|9.15833834\",\n  \"lat\": \"41.94158511|42.30383634\",\n  \"resource\": \"{{resource}}\",\n  \"delimiter\": \"|\",\n  \"indent\": \"true\",\n  \"measures\": \"false\",\n  \"sampling\" : 20\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_ecdd74f7b16543878c3fcfefee52356d"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1693849412433.1294,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_03a888650cc64809985ba91bb18e7231",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696605977298,
+            "created": 1696578182933,
+            "name": "Base environment",
+            "data": {
+                "scheme": "https",
+                "base_path": "altimetrie/1.0",
+                "host": "data-qua.priv.geopf.fr",
+                "base_url": "{{ scheme }}://{{ host }}/{{ base_path }}"
+            },
+            "dataPropertyOrder": {
+                "&": [
+                    "scheme",
+                    "base_path",
+                    "host",
+                    "base_url"
+                ]
+            },
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1678957549514,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_6cbcd232818d455ea3e2aaf4ed94cedc",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696607383700,
+            "created": 1696578182942,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_d90e7d95935d4236812dd91c3cba4388",
+            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "modified": 1696605414523,
+            "created": 1696605414523,
+            "fileName": "Altimétrie",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        },
+        {
+            "_id": "env_5f2086ebb428464eba2087fa4fd46b67",
+            "parentId": "env_03a888650cc64809985ba91bb18e7231",
+            "modified": 1696607253297,
+            "created": 1696578182935,
+            "name": "Identifiants des entités",
+            "data": {
+                "resource": "{% prompt 'Nom de la ressource à interroger', '', '', 'resource', false, true %}"
+            },
+            "dataPropertyOrder": {
+                "&": [
+                    "resource"
+                ]
+            },
+            "color": "#ff0000",
+            "isPrivate": false,
+            "metaSortKey": 1678957549580,
+            "_type": "environment"
+        }
+    ]
+}
