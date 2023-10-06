@@ -1,0 +1,12 @@
+<!DOCTYPE connections>
+<qgsWFSConnections version="1.1">
+
+    <wfs pagesize="" username="" ignoreAxisOrientation="false" pagingenabled="true" version="auto"
+        maxnumfeatures="100" password="" name="Géoplateforme WFS open"
+        url="https://data.geopf.fr/wfs?VERSION=2.0.0" invertAxisOrientation="false" />
+
+    <wfs pagesize="" username="" ignoreAxisOrientation="false" pagingenabled="true" version="auto"
+        maxnumfeatures="100" password="" name="Géoplateforme WFS restreint"
+        url="https://data.geopf.fr/private/wfs?VERSION=2.0.0" invertAxisOrientation="false" />
+
+</qgsWFSConnections>

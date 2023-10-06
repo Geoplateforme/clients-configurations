@@ -1,0 +1,36 @@
+<!DOCTYPE connections>
+<qgsWMSConnections version="1.0">
+    <!-- WMTS -->
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMTS open" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMTS restreint" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/private/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
+
+    <!-- WMS vecteur -->
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMS Vecteur open" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.3.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMS Vecteur restreint" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/private/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+
+    <!-- WMS raster -->
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMS Raster open" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMS Raster restreint" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+
+</qgsWMSConnections>
