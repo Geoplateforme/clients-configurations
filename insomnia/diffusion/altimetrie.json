@@ -1,12 +1,12 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2023-10-06T15:50:00.193Z",
+    "__export_date": "2023-12-14T10:42:03.335Z",
     "__export_source": "insomnia.desktop.app:v2023.2.0",
     "resources": [
         {
-            "_id": "req_dfdb64af7dbe4c4196447c369e726978",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "_id": "req_0308c9f5be86402197cd0d284f57ac9a",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
             "modified": 1696606559620,
             "created": 1696578947124,
             "url": "{{base_url}}/resources",
@@ -28,21 +28,21 @@
             "_type": "request"
         },
         {
-            "_id": "wrk_da338e764300447e83bd3b8581f5f063",
+            "_id": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
             "parentId": null,
-            "modified": 1696605414523,
-            "created": 1696605414523,
-            "name": "Altimétrie",
+            "modified": 1702550295471,
+            "created": 1702548301964,
+            "name": "Service d'altimétrie",
             "description": "",
-            "scope": "design",
+            "scope": "collection",
             "_type": "workspace"
         },
         {
-            "_id": "req_3fa279e684e248f0a925e3634844748a",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
-            "modified": 1696606554875,
+            "_id": "req_44e227fef3144141bf8807c95ba0e548",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
+            "modified": 1702549010833,
             "created": 1696579184372,
-            "url": "{{base_url}}/resources/{{resource}}",
+            "url": "{{base_url}}/resources/{% prompt 'Nom de la ressource ?', '', '', '', false, true %}",
             "name": "Détails d'une couche",
             "description": "",
             "method": "GET",
@@ -61,9 +61,9 @@
             "_type": "request"
         },
         {
-            "_id": "req_d9f8a510d6c2496ebcd78c4b20ce865e",
-            "parentId": "fld_e93b5a2572f34f47bb97db1a7b9c2f7f",
-            "modified": 1696606936217,
+            "_id": "req_73b9b1dc756a4cc7be44e430ec75ed22",
+            "parentId": "fld_282962ac66574bc6980fcc0a6eed3c5d",
+            "modified": 1702550147879,
             "created": 1696580772522,
             "url": "{{base_url}}/calcul/alti/rest/elevation.json",
             "name": "Via les paramètres de requête",
@@ -74,7 +74,7 @@
                 {
                     "id": "pair_ddb71c9a1ce0404dadfbd7fbf59d8209",
                     "name": "resource",
-                    "value": "{{resource}}",
+                    "value": "{% prompt 'Nom de la ressource ?', '', '', '', false, true %}",
                     "description": ""
                 },
                 {
@@ -129,8 +129,8 @@
             "_type": "request"
         },
         {
-            "_id": "fld_e93b5a2572f34f47bb97db1a7b9c2f7f",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "_id": "fld_282962ac66574bc6980fcc0a6eed3c5d",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
             "modified": 1696606613006,
             "created": 1696578183214,
             "name": "Demande d'altitudes",
@@ -141,9 +141,9 @@
             "_type": "request_group"
         },
         {
-            "_id": "req_e3b45874c9484ebf8878b1110b04e3d5",
-            "parentId": "fld_e93b5a2572f34f47bb97db1a7b9c2f7f",
-            "modified": 1696606945466,
+            "_id": "req_c321454f69574b62983d21cbef17299d",
+            "parentId": "fld_282962ac66574bc6980fcc0a6eed3c5d",
+            "modified": 1702549024205,
             "created": 1696586655221,
             "url": "{{base_url}}/calcul/alti/rest/elevation.json",
             "name": "Via le corps de requête",
@@ -151,7 +151,7 @@
             "method": "POST",
             "body": {
                 "mimeType": "application/json",
-                "text": "{\n  \"lon\": \"8.71367499|9.15833834\",\n  \"lat\": \"41.94158511|42.30383634\",\n  \"resource\": \"{{resource}}\",\n  \"delimiter\": \"|\",\n  \"indent\": \"true\",\n  \"measures\": \"true\",\n  \"zonly\": \"false\"\n}"
+                "text": "{\n  \"lon\": \"8.71367499|9.15833834\",\n  \"lat\": \"41.94158511|42.30383634\",\n  \"resource\": \"{% prompt 'Nom de la ressource ?', '', '', '', false, true %}\",\n  \"delimiter\": \"|\",\n  \"indent\": \"true\",\n  \"measures\": \"true\",\n  \"zonly\": \"false\"\n}"
             },
             "parameters": [],
             "headers": [
@@ -173,9 +173,9 @@
             "_type": "request"
         },
         {
-            "_id": "req_e5c2f1061bba4e4cb9d150545e2fbad1",
-            "parentId": "fld_aa33bb3d68d94733b108d6fb01d27626",
-            "modified": 1696607036341,
+            "_id": "req_2d5be72a950848e19bc50c6c3f48d89c",
+            "parentId": "fld_7f9bbb0b7d7f4610ab568bb1c75f7d01",
+            "modified": 1702549029258,
             "created": 1696586723661,
             "url": "{{base_url}}/calcul/alti/rest/elevationLine.json",
             "name": "Via les paramètres de requête",
@@ -186,7 +186,7 @@
                 {
                     "id": "pair_ddb71c9a1ce0404dadfbd7fbf59d8209",
                     "name": "resource",
-                    "value": "{{resource}}",
+                    "value": "{% prompt 'Nom de la ressource ?', '', '', '', false, true %}",
                     "description": ""
                 },
                 {
@@ -239,8 +239,8 @@
             "_type": "request"
         },
         {
-            "_id": "fld_aa33bb3d68d94733b108d6fb01d27626",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
+            "_id": "fld_7f9bbb0b7d7f4610ab568bb1c75f7d01",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
             "modified": 1696606628565,
             "created": 1696586723639,
             "name": "Demande de profils altimétrique",
@@ -251,9 +251,9 @@
             "_type": "request_group"
         },
         {
-            "_id": "req_ca23876d5670472192baea1a0a661c34",
-            "parentId": "fld_aa33bb3d68d94733b108d6fb01d27626",
-            "modified": 1696606820598,
+            "_id": "req_f201c8e7b8ae4c3fbe623d936bc5523e",
+            "parentId": "fld_7f9bbb0b7d7f4610ab568bb1c75f7d01",
+            "modified": 1702549033387,
             "created": 1696587230624,
             "url": "{{base_url}}/calcul/alti/rest/elevationLine.json",
             "name": "Via le corps de requête",
@@ -261,7 +261,7 @@
             "method": "POST",
             "body": {
                 "mimeType": "application/json",
-                "text": "{\n  \"lon\": \"8.71367499|9.15833834\",\n  \"lat\": \"41.94158511|42.30383634\",\n  \"resource\": \"{{resource}}\",\n  \"delimiter\": \"|\",\n  \"indent\": \"true\",\n  \"measures\": \"false\",\n  \"sampling\" : 20\n}"
+                "text": "{\n  \"lon\": \"8.71367499|9.15833834\",\n  \"lat\": \"41.94158511|42.30383634\",\n  \"resource\": \"{% prompt 'Nom de la ressource ?', '', '', '', false, true %}\",\n  \"delimiter\": \"|\",\n  \"indent\": \"true\",\n  \"measures\": \"false\",\n  \"sampling\" : 20\n}"
             },
             "parameters": [],
             "headers": [
@@ -283,66 +283,136 @@
             "_type": "request"
         },
         {
-            "_id": "env_03a888650cc64809985ba91bb18e7231",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
-            "modified": 1696605977298,
-            "created": 1696578182933,
-            "name": "Base environment",
+            "_id": "env_0765eeae978cc41a2a2eedfa78900238fa2767a0",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
+            "modified": 1702549007910,
+            "created": 1702548301967,
+            "name": "Base Environment",
             "data": {
                 "scheme": "https",
-                "base_path": "altimetrie/1.0",
-                "host": "data-qua.priv.geopf.fr",
-                "base_url": "{{ scheme }}://{{ host }}/{{ base_path }}"
+                "base_path": "/altimetrie/1.0",
+                "base_url": "{{ scheme }}://{{ host }}{{ base_path }}"
             },
             "dataPropertyOrder": {
                 "&": [
                     "scheme",
                     "base_path",
-                    "host",
                     "base_url"
                 ]
             },
             "color": null,
             "isPrivate": false,
-            "metaSortKey": 1678957549514,
+            "metaSortKey": 1702548301967,
             "_type": "environment"
         },
         {
-            "_id": "jar_6cbcd232818d455ea3e2aaf4ed94cedc",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
-            "modified": 1696607383700,
-            "created": 1696578182942,
+            "_id": "jar_0765eeae978cc41a2a2eedfa78900238fa2767a0",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
+            "modified": 1702548869807,
+            "created": 1702548301968,
             "name": "Default Jar",
-            "cookies": [],
+            "cookies": [
+                {
+                    "key": "session",
+                    "value": "nd96akycEpgN9igNKhVBbg|1702552454|IZG2mBW4tHmYFtQIfm3Kdw|LaPqghEMYBTPV0JhO2u7L5VPhds",
+                    "domain": "data-qua.priv.geopf.fr",
+                    "path": "/",
+                    "secure": true,
+                    "httpOnly": true,
+                    "extensions": [
+                        "SameSite=Lax"
+                    ],
+                    "hostOnly": true,
+                    "creation": "2023-12-14T10:14:14.621Z",
+                    "lastAccessed": "2023-12-14T10:14:14.621Z",
+                    "id": "7376161472939127"
+                },
+                {
+                    "key": "lb_8bdf05f2d995c9915b79b7b70756a585",
+                    "value": "i_2d1e3d49324441b44880ef3054512760",
+                    "domain": "data-qua.priv.geopf.fr",
+                    "path": "/",
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2023-12-14T10:14:14.621Z",
+                    "lastAccessed": "2023-12-14T10:14:14.621Z",
+                    "id": "6505018961217826"
+                },
+                {
+                    "key": "session",
+                    "value": "NwcIQgGfKqKbx9d44BjOcA|1702552469|X8OG6LkbGtsrVp3IZiwuoA|UHkgBq0zHu_KHxymwYLdDTe434Y",
+                    "domain": "data.geopf.fr",
+                    "path": "/",
+                    "secure": true,
+                    "httpOnly": true,
+                    "extensions": [
+                        "SameSite=Lax"
+                    ],
+                    "hostOnly": true,
+                    "creation": "2023-12-14T10:14:29.807Z",
+                    "lastAccessed": "2023-12-14T10:14:29.807Z",
+                    "id": "05153704778540602"
+                },
+                {
+                    "key": "lb_8bdf05f2d995c9915b79b7b70756a585",
+                    "value": "i_fb79d1b06efda2ba969a27430b161bd1",
+                    "domain": "data.geopf.fr",
+                    "path": "/",
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2023-12-14T10:14:29.807Z",
+                    "lastAccessed": "2023-12-14T10:14:29.807Z",
+                    "id": "03006120585724026"
+                }
+            ],
             "_type": "cookie_jar"
         },
         {
-            "_id": "spc_d90e7d95935d4236812dd91c3cba4388",
-            "parentId": "wrk_da338e764300447e83bd3b8581f5f063",
-            "modified": 1696605414523,
-            "created": 1696605414523,
-            "fileName": "Altimétrie",
+            "_id": "spc_a226ae4da431401ca74108eb20a09f8f",
+            "parentId": "wrk_66f5c893f049456b9c3ea2e5eae1b282",
+            "modified": 1702548301964,
+            "created": 1702548301964,
+            "fileName": "My Collection",
             "contents": "",
             "contentType": "yaml",
             "_type": "api_spec"
         },
         {
-            "_id": "env_5f2086ebb428464eba2087fa4fd46b67",
-            "parentId": "env_03a888650cc64809985ba91bb18e7231",
-            "modified": 1696607253297,
-            "created": 1696578182935,
-            "name": "Identifiants des entités",
+            "_id": "env_78f47d6a3275455f8a22e9640285ab53",
+            "parentId": "env_0765eeae978cc41a2a2eedfa78900238fa2767a0",
+            "modified": 1702548803752,
+            "created": 1702548746474,
+            "name": "qualification",
             "data": {
-                "resource": "{% prompt 'Nom de la ressource à interroger', '', '', 'resource', false, true %}"
+                "host": "data-qua.priv.geopf.fr"
             },
             "dataPropertyOrder": {
                 "&": [
-                    "resource"
+                    "host"
                 ]
             },
             "color": "#ff0000",
             "isPrivate": false,
-            "metaSortKey": 1678957549580,
+            "metaSortKey": 1702548746474,
+            "_type": "environment"
+        },
+        {
+            "_id": "env_7b9998bf9fb142b6bb54262d6ba758e9",
+            "parentId": "env_0765eeae978cc41a2a2eedfa78900238fa2767a0",
+            "modified": 1702548792948,
+            "created": 1702548777307,
+            "name": "production",
+            "data": {
+                "host": "data.geopf.fr"
+            },
+            "dataPropertyOrder": {
+                "&": [
+                    "host"
+                ]
+            },
+            "color": "#00ff04",
+            "isPrivate": false,
+            "metaSortKey": 1702548777307,
             "_type": "environment"
         }
     ]

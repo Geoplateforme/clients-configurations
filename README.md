@@ -10,4 +10,4 @@ Ce projet contient des configurations facilitant l'utilisation des services de l
 
 ## Configuration Insomnia
 
-* [Utilisation du service d'altimétrie](./insomnia/altimetrie/base.qua.json)
+* [Utilisation du service d'altimétrie](./insomnia/diffusion/altimetrie.json)
