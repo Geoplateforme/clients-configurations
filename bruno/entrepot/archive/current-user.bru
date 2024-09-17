@@ -1,0 +1,31 @@
+meta {
+  name: Compte connecté
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{endpoint}}/users/me
+  body: none
+  auth: none
+}
+
+script:post-response {
+  if (res.body.communities_member) {
+
+    var communities = {};
+    var datastores = {};
+  
+    res.body.communities_member.forEach(
+      (element) => {
+        communities[element.community._id] = element.community.name;
+        if (element.community.datastore) {
+          datastores[element.community.datastore] = element.community.name;
+        }
+      }
+    );
+  
+    bru.setVar("user_datastores", datastores)
+    bru.setVar("user_communities", communities)
+  }
+}

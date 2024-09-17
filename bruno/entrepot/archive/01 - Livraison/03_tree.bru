@@ -1,0 +1,16 @@
+meta {
+  name: Visualisation du contenu
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/uploads/:upload/tree
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  upload: {{last_created_upload}}
+}

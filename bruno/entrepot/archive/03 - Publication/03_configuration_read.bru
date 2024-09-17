@@ -1,0 +1,16 @@
+meta {
+  name: Visualisation de la configuration
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/configurations/:configuration
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  configuration: {{last_created_configuration}}
+}

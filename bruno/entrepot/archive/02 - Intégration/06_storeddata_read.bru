@@ -1,0 +1,16 @@
+meta {
+  name: Visualisation de la donnée stockée
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/stored_data/:storeddata
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  storeddata: {{last_created_storeddata}}
+}

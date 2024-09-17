@@ -1,0 +1,40 @@
+meta {
+  name: Publication
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/configurations/:configuration/offerings
+  body: json
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  configuration: {{last_created_configuration}}
+}
+
+body:json {
+  {
+    "open": true,
+    "endpoint": "{{publication_endpoint}}"
+  }
+}
+
+script:pre-request {
+  const input = await prompt({
+    label: "Sur quel point d'accès voulez vous publier ?",
+    title: "Point d'accès ?",
+    type: 'select',
+    selectOptions: bru.getVar("datastore_endpoints")
+  });
+  
+  bru.setVar('publication_endpoint', input);
+}
+
+script:post-response {
+  if (res.body._id) {
+    bru.setVar("last_created_offering", res.body._id)
+  }
+}

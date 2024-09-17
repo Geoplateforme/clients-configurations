@@ -1,0 +1,43 @@
+meta {
+  name: Création de l'exécution
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/processings/executions
+  body: json
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+}
+
+body:json {
+  {
+    "processing": "{{processing}}",
+    "inputs": {
+      "upload": [
+        "{{last_created_upload}}"
+      ]
+    },
+    "output": {
+      "stored_data": {
+        "name": "Données départementales",
+        "storage_tags": [
+          "ARCHIVE"
+        ]
+      }
+    }
+  }
+}
+
+script:post-response {
+  if (res.body._id) {
+    bru.setVar("last_created_execution", res.body._id)
+  }
+  if (res.body.output.stored_data._id) {
+    bru.setVar("last_created_storeddata", res.body.output.stored_data._id)
+  }
+}

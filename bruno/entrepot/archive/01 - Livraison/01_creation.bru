@@ -1,0 +1,30 @@
+meta {
+  name: Création
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/uploads
+  body: json
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+}
+
+body:json {
+  {
+    "description": "Départements et limites départementales",
+    "name": "Données départementales",
+    "type": "ARCHIVE",
+    "srs": "EPSG:2154"
+  }
+}
+
+script:post-response {
+  if (res.body._id) {
+    bru.setVar("last_created_upload", res.body._id)
+  }
+}

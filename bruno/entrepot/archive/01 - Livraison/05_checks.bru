@@ -1,0 +1,16 @@
+meta {
+  name: Contrôle des vérifications
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/uploads/:upload/checks
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  upload: {{last_created_upload}}
+}

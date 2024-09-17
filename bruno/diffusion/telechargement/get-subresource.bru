@@ -1,0 +1,22 @@
+meta {
+  name: Description d'une sous-resource
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{endpoint}}/resource/:resource/:subresource
+  body: none
+  auth: none
+}
+
+params:path {
+  resource: limites_administratives
+  subresource: departements
+}
+
+headers {
+  accept: application/json
+  apikey: masupercle
+  user-agent: bruno
+}

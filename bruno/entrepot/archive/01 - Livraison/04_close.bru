@@ -1,0 +1,16 @@
+meta {
+  name: Fermeture
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/uploads/:upload/close
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  upload: {{last_created_upload}}
+}

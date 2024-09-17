@@ -1,0 +1,62 @@
+meta {
+  name: Création de la configuration
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/configurations
+  body: json
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+}
+
+
+body:json {
+  {
+    "type": "DOWNLOAD",
+    "name": "Limites administratives",
+    "layer_name": "limites_administratives",
+    "type_infos": {
+      "title": {
+        "fr": "Limites administratives",
+        "en": "Administrative units"
+      },
+      "abstract": {
+        "fr": "Limites administratives, au format Shapefile, sur la France métropolitaine"
+      },
+      "keywords": [
+        "Tutoriel",
+        "Limites administratives"
+      ],
+      "product_identifier": "Admin Express",
+      "used_data": [
+        {
+          "sub_name": "departements",
+          "title": {
+            "fr": "Données départementales"
+          },
+          "abstract": {
+            "fr": "Départements et limites départementales, au format Shapefile, sur la France métropolitaine"
+          },
+          "keywords": [
+            "Limites départementales"
+          ],
+          "format": "SHP",
+          "zone": "FXX",
+          "resolution": "1m",
+          "stored_data": "{{last_created_storeddata}}"
+        }
+      ]
+    }
+  }
+}
+
+script:post-response {
+  if (res.body._id) {
+    bru.setVar("last_created_configuration", res.body._id)
+  }
+}

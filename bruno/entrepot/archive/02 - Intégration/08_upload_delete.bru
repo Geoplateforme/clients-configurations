@@ -1,0 +1,16 @@
+meta {
+  name: Suppression de la livraison
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{endpoint}}/datastores/:datastore/uploads/:upload
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  upload: {{last_created_upload}}
+}

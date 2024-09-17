@@ -1,0 +1,29 @@
+meta {
+  name: Connexion
+  type: http
+  seq: 1
+}
+
+head {
+  url: {{endpoint}}/users/me
+  body: none
+  auth: oauth2
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{iam.redirect}}
+  authorization_url: https://{{iam.host}}/realms/geoplateforme/protocol/openid-connect/auth
+  access_token_url: https://{{iam.host}}/realms/geoplateforme/protocol/openid-connect/token
+  client_id: {{iam.client}}
+  client_secret: {{iam.secret}}
+  scope: 
+  state: 
+  pkce: false
+}
+
+script:post-response {
+  if (res.body.access_token) {
+    bru.setVar("oauth_access_token", res.body.access_token);
+  }
+}

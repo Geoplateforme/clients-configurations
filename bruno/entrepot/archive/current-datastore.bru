@@ -1,0 +1,27 @@
+meta {
+  name: Entrepôt courant
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+}
+
+script:post-response {
+  var endpoints = {};
+  
+  res.body.endpoints.forEach(
+    (element) => {
+      endpoints[element.endpoint._id] = `${element.endpoint.name} (${element.endpoint.type})`;
+    }
+  );
+  
+  bru.setVar("datastore_endpoints", endpoints)
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Contrôle de l'exécution
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/processings/executions/:execution
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  execution: {{last_created_execution}}
+}

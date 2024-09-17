@@ -1,0 +1,17 @@
+meta {
+  name: Déclenchement de l'exécution
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/processings/executions/:execution/launch
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  execution: {{last_created_execution}}
+}
+

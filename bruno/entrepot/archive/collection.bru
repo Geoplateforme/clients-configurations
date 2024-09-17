@@ -1,0 +1,123 @@
+script:pre-request {
+  if (bru.hasVar("oauth_access_token")) {
+    req.setHeader("Authorization", "Bearer " + bru.getVar("oauth_access_token"));
+  }
+  
+  // On fait les imports ici pour ne pas les avoir en double après
+  const prompt = require('electron-prompt');
+  
+  // On regarde dans le chemin les paramètres "variabilisés" :
+  // On va les demander / sauvegarder 
+  if (req.req.pathParams) {
+
+    for (let i = 0; i < req.req.pathParams.length; i++) {
+
+      element = req.req.pathParams[i];
+      const found = element.value.match(/^{{(current_(\S+))}}$/);
+      if (found != null) {
+        let variable = found[1];
+        let entity = found[2];
+
+        if (! bru.hasVar(variable) || bru.getVar(variable) == null) {
+          
+          if (entity == "datastore") {
+            if (bru.hasVar("user_datastores")) {
+              const input = await prompt({
+                label: 'Dans quel entrepôt souhaitez vous travailler ?',
+                title: 'Entrepôt ?',
+                type: 'select',
+                selectOptions: bru.getVar("user_datastores")
+              });
+
+              bru.setVar('current_datastore', input);
+            } else {
+              const input = await prompt({
+                label: 'Dans quel entrepôt (identifiant) souhaitez vous travailler ?',
+                title: 'Entrepôt ?',
+                type: 'input',
+                inputAttrs: {type: 'text', required: true}
+              });
+
+              bru.setVar('current_datastore', input);
+            }
+          }
+          else if (entity == "processing") {
+            if (bru.hasVar("datastore_processings")) {
+              const input = await prompt({
+                label: 'Avec quel traitement souhaitez vous travailler ?',
+                title: 'Traitement ?',
+                type: 'select',
+                selectOptions: bru.getVar("datastore_processings")
+              });
+
+              bru.setVar('current_processing', input);
+            } else {
+              const input = await prompt({
+                label: 'Avec quel traitement souhaitez vous travailler ?',
+                title: 'Traitement ?',
+                type: 'input',
+                inputAttrs: {type: 'text', required: true}
+              });
+
+              bru.setVar('current_processing', input);
+            }
+          }
+          else if (entity == "upload") {
+            const input = await prompt({
+              label: 'Sur quelle livraison souhaitez vous travailler ?',
+              title: 'Livraison ?',
+              type: 'input',
+              value: bru.getVar("last_created_upload"),
+              inputAttrs: {type: 'text', required: true}
+            });
+
+            bru.setVar('current_upload', input);
+          }
+          else if (entity == "processingexecution") {
+            const input = await prompt({
+              label: 'Avec quelle exécution de traitement souhaitez vous travailler ?',
+              title: 'Exécution de traitement ?',
+              type: 'input',
+              value: bru.getVar("last_created_processingexecution"),
+              inputAttrs: {type: 'text', required: true}
+            });
+
+            bru.setVar('current_processingexecution', input);
+          }
+          else if (entity == "static") {
+            const input = await prompt({
+              label: 'Sur quel fichier statique souhaitez vous travailler ?',
+              title: 'Fichier statique ?',
+              type: 'input',
+              value: bru.getVar("last_created_static"),
+              inputAttrs: {type: 'text', required: true}
+            });
+
+            bru.setVar('current_static', input);
+          }
+          else if (entity == "storeddata") {
+            const input = await prompt({
+              label: 'Sur quelle donnée stockée souhaitez vous travailler ?',
+              title: 'Donnée stockée ?',
+              type: 'input',
+              inputAttrs: {type: 'text', required: true}
+            });
+
+            bru.setVar('current_storeddata', input);
+          }
+          else {
+            const input = await prompt({
+              label: `Sur quelle ${entity} souhaitez vous travailler ?`,
+              title: `${entity} ?`,
+              type: 'input',
+              inputAttrs: {type: 'text', required: true}
+            });
+
+            bru.setVar(variable, input);
+          }
+        }
+        
+      }
+    }
+  }
+}

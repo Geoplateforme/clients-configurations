@@ -1,0 +1,21 @@
+meta {
+  name: Description d'une resource
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{endpoint}}/resource/:resource
+  body: none
+  auth: none
+}
+
+params:path {
+  resource: limites_administratives
+}
+
+headers {
+  accept: application/json
+  apikey: masupercle
+  user-agent: bruno
+}

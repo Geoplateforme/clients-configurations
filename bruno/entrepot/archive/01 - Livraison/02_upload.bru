@@ -1,0 +1,30 @@
+meta {
+  name: Téléversement d'un fichier
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{endpoint}}/datastores/:datastore/uploads/:upload/data?path=data/DEPARTEMENT.shp
+  body: multipartForm
+  auth: none
+}
+
+params:query {
+  path: data/DEPARTEMENT.shp
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  upload: {{last_created_upload}}
+}
+
+body:multipart-form {
+  file: @file(../../../../tutoriels/docs/assets/data/archive/DEPARTEMENT.shp)
+}
+
+script:post-response {
+  if (res.body._id) {
+    bru.setVar("last_created_upload", res.body._id)
+  }
+}

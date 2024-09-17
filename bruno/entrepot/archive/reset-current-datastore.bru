@@ -1,0 +1,26 @@
+meta {
+  name: Oublie l'entrepôt courant
+  type: http
+  seq: 99
+}
+
+delete {
+  url: 
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  for (const [key, value] of Object.entries(bru.runtimeVariables)) {
+    if (key.startsWith("current_")) {
+      bru.deleteVar(key);
+    }
+    if (key.startsWith("last_created_")) {
+      bru.deleteVar(key);
+    }
+  }
+}
+
+docs {
+  Cet appel supprime tous les identifiants courants des entités appartenant au datastore courant.
+}

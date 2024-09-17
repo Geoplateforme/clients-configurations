@@ -1,0 +1,23 @@
+meta {
+  name: Téléchargement d'un fichier
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{endpoint}}/download/:resource/:subresource/:file
+  body: none
+  auth: none
+}
+
+params:path {
+  resource: limites_administratives
+  subresource: departements
+  file: LIMITE_DEPARTEMENT.dbf
+}
+
+headers {
+  accept: application/json
+  apikey: masupercle
+  user-agent: bruno
+}

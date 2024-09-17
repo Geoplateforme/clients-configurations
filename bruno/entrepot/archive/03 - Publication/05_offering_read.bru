@@ -1,0 +1,16 @@
+meta {
+  name: Visualisation de l'offre
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/offerings/:offering
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  configuration: {{last_created_offering}}
+}

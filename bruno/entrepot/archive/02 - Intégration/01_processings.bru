@@ -1,0 +1,16 @@
+meta {
+  name: Traitements disponibles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/processings
+  body: none
+  auth: none
+}
+
+params:path {
+  datastore: {{current_datastore}}
+}
+

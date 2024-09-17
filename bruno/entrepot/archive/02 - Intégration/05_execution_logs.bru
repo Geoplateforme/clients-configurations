@@ -1,0 +1,21 @@
+meta {
+  name: Logs de l'exécution
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{endpoint}}/datastores/:datastore/processings/executions/:execution/logs?limit=200&page=0
+  body: none
+  auth: none
+}
+
+params:query {
+  limit: 200
+  page: 0
+}
+
+params:path {
+  datastore: {{current_datastore}}
+  execution: {{last_created_execution}}
+}

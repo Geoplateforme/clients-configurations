@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "name": "Gestion des archives",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "scripts": {
+    "moduleWhitelist": ["electron"]
+  }
+}

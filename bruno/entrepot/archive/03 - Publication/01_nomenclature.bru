@@ -1,0 +1,28 @@
+meta {
+  name: Nomenclature
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{endpoint}}/statics/nomenclatures?type=ZONE
+  body: none
+  auth: none
+}
+
+params:query {
+  type: ZONE
+  ~term: %
+  ~label: %
+}
+
+docs {
+  Types de nomenclatures :
+  
+  * CRS
+  * ZONE
+  * FORMAT
+  * RESOLUTION
+  
+  Le `term` correspond à un code, unique pour un type donné. Le `label` correspond au nom "humain". Dans le filtrage, il est possible de mettre des caractères `%` comme joker pour `term` et `label`.
+}
