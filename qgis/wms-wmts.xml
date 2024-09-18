@@ -10,6 +10,11 @@
         url="https://data.geopf.fr/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
 
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMTS bac à sable" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/sandbox/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme WMTS restreint" username="" invertAxisOrientation="false" dpiMode="7"
         ignoreAxisOrientation="false" smoothPixmapTransform="false"
         url="https://data.geopf.fr/private/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
@@ -18,7 +23,12 @@
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme WMS Vecteur open" username="" invertAxisOrientation="false" dpiMode="7"
         ignoreAxisOrientation="false" smoothPixmapTransform="false"
-        url="https://data.geopf.fr/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.3.0" />
+        url="https://data.geopf.fr/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMS Vecteur bac à sable" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/sandbox/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
 
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme WMS Vecteur restreint" username="" invertAxisOrientation="false" dpiMode="7"
@@ -32,10 +42,17 @@
         url="https://data.geopf.fr/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
 
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme WMS Raster bac à sable" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data.geopf.fr/sandbox/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme WMS Raster restreint" username="" invertAxisOrientation="false" dpiMode="7"
         ignoreAxisOrientation="false" smoothPixmapTransform="false"
         url="https://data.geopf.fr/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
 
+    <!-- ENVIRONNEMENT DE QUALIFICATION -->
+    
     <!-- WMTS -->
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme [QUA] WMTS open" username="" invertAxisOrientation="false" dpiMode="7"
@@ -43,17 +60,25 @@
         url="https://data-qua.priv.geopf.fr/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
 
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme [QUA] WMTS bac à sable" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data-qua.priv.geopf.fr/sandbox/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme [QUA] WMTS restreint" username="" invertAxisOrientation="false" dpiMode="7"
         ignoreAxisOrientation="false" smoothPixmapTransform="false"
         url="https://data-qua.priv.geopf.fr/private/wmts?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.0.0" />
 
-    <!-- ENVIRONNEMENT DE QUALIFICATION -->
-    
     <!-- WMS vecteur -->
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme [QUA] WMS Vecteur open" username="" invertAxisOrientation="false" dpiMode="7"
         ignoreAxisOrientation="false" smoothPixmapTransform="false"
-        url="https://data-qua.priv.geopf.fr/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMTS&amp;VERSION=1.3.0" />
+        url="https://data-qua.priv.geopf.fr/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme [QUA] WMS Vecteur bac à sable" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data-qua.priv.geopf.fr/sandbox/wms-v?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
 
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme [QUA] WMS Vecteur restreint" username="" invertAxisOrientation="false" dpiMode="7"
@@ -65,6 +90,11 @@
         name="Géoplateforme [QUA] WMS Raster open" username="" invertAxisOrientation="false" dpiMode="7"
         ignoreAxisOrientation="false" smoothPixmapTransform="false"
         url="https://data-qua.priv.geopf.fr/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
+    
+    <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
+        name="Géoplateforme [QUA] WMS Raster bac à sable" username="" invertAxisOrientation="false" dpiMode="7"
+        ignoreAxisOrientation="false" smoothPixmapTransform="false"
+        url="https://data-qua.priv.geopf.fr/sandbox/wms-r?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.3.0" />
 
     <wms ignoreGetFeatureInfoURI="false" ignoreGetMapURI="false" password=""
         name="Géoplateforme [QUA] WMS Raster restreint" username="" invertAxisOrientation="false" dpiMode="7"
