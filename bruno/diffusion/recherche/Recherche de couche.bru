@@ -1,0 +1,17 @@
+meta {
+  name: Recherche de couche
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://data.geopf.fr/recherche/api/indexes/geoplateforme
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "metadata_urls": "https://geoservices.ign.fr/sites/default/files/2021-07/IGNF_SCAN1000r_2-1.xml"
+  }
+}

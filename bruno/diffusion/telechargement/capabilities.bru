@@ -5,20 +5,20 @@ meta {
 }
 
 get {
-  url: {{endpoint}}/capabilities?crs=https://www.opengis.net/def/crs/EPSG/0/2154&zone=FXX&format=SHP&editionDateTo=2024-09-16
+  url: {{endpoint}}/capabilities?crs=https://www.opengis.net/def/crs/EPSG/0/2154&zone=France métropolitaine&format=SHP&editionDateTo=2024-09-16
   body: none
   auth: none
 }
 
 params:query {
   crs: https://www.opengis.net/def/crs/EPSG/0/2154
-  zone: FXX
+  zone: France métropolitaine
   format: SHP
   editionDateTo: 2024-09-16
 }
 
 headers {
-  apikey: masupercle
-  user-agent: Bruno
+  ~apikey: masupercle
+  ~user-agent: Bruno
   ~accept: application/json
 }
