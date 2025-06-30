@@ -7,12 +7,12 @@ meta {
 get {
   url: {{endpoint}}/users/me
   body: none
-  auth: none
+  auth: inherit
 }
 
 script:post-response {
   if (res.body.communities_member) {
-
+  
     var communities = {};
     var datastores = {};
   

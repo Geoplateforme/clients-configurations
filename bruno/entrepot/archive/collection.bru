@@ -1,3 +1,26 @@
+auth {
+  mode: oauth2
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{iam.redirect}}
+  authorization_url: https://{{iam.host}}/realms/geoplateforme/protocol/openid-connect/auth
+  access_token_url: https://{{iam.host}}/realms/geoplateforme/protocol/openid-connect/token
+  refresh_token_url: 
+  client_id: {{iam.client}}
+  client_secret: {{iam.secret}}
+  scope: 
+  state: 
+  pkce: false
+  credentials_placement: body
+  credentials_id: credentials
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: true
+  auto_refresh_token: false
+}
+
 script:pre-request {
   if (bru.hasVar("oauth_access_token")) {
     req.setHeader("Authorization", "Bearer " + bru.getVar("oauth_access_token"));
@@ -9,15 +32,15 @@ script:pre-request {
   // On regarde dans le chemin les paramètres "variabilisés" :
   // On va les demander / sauvegarder 
   if (req.req.pathParams) {
-
+  
     for (let i = 0; i < req.req.pathParams.length; i++) {
-
+  
       element = req.req.pathParams[i];
       const found = element.value.match(/^{{(current_(\S+))}}$/);
       if (found != null) {
         let variable = found[1];
         let entity = found[2];
-
+  
         if (! bru.hasVar(variable) || bru.getVar(variable) == null) {
           
           if (entity == "datastore") {
@@ -28,7 +51,7 @@ script:pre-request {
                 type: 'select',
                 selectOptions: bru.getVar("user_datastores")
               });
-
+  
               bru.setVar('current_datastore', input);
             } else {
               const input = await prompt({
@@ -37,7 +60,7 @@ script:pre-request {
                 type: 'input',
                 inputAttrs: {type: 'text', required: true}
               });
-
+  
               bru.setVar('current_datastore', input);
             }
           }
@@ -49,7 +72,7 @@ script:pre-request {
                 type: 'select',
                 selectOptions: bru.getVar("datastore_processings")
               });
-
+  
               bru.setVar('current_processing', input);
             } else {
               const input = await prompt({
@@ -58,7 +81,7 @@ script:pre-request {
                 type: 'input',
                 inputAttrs: {type: 'text', required: true}
               });
-
+  
               bru.setVar('current_processing', input);
             }
           }
@@ -70,7 +93,7 @@ script:pre-request {
               value: bru.getVar("last_created_upload"),
               inputAttrs: {type: 'text', required: true}
             });
-
+  
             bru.setVar('current_upload', input);
           }
           else if (entity == "processingexecution") {
@@ -81,7 +104,7 @@ script:pre-request {
               value: bru.getVar("last_created_processingexecution"),
               inputAttrs: {type: 'text', required: true}
             });
-
+  
             bru.setVar('current_processingexecution', input);
           }
           else if (entity == "static") {
@@ -92,7 +115,7 @@ script:pre-request {
               value: bru.getVar("last_created_static"),
               inputAttrs: {type: 'text', required: true}
             });
-
+  
             bru.setVar('current_static', input);
           }
           else if (entity == "storeddata") {
@@ -102,7 +125,7 @@ script:pre-request {
               type: 'input',
               inputAttrs: {type: 'text', required: true}
             });
-
+  
             bru.setVar('current_storeddata', input);
           }
           else {
@@ -112,7 +135,7 @@ script:pre-request {
               type: 'input',
               inputAttrs: {type: 'text', required: true}
             });
-
+  
             bru.setVar(variable, input);
           }
         }
