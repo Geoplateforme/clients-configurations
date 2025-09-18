@@ -1,0 +1,41 @@
+meta {
+  name: Demande d'une extraction
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{endpoint}}/processes/:process/execution
+  body: json
+  auth: inherit
+}
+
+params:path {
+  process: ef202bf4-faf9-4d71-95bb-080ce599ada5_5e8c9b27-4610-436d-a24c-7aa2fe5a9feb
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}
+
+body:json {
+  {
+    "inputs": {
+      "format": "PARQUET",
+      "relations": {
+        "pays": {
+          "attributes": [
+            "id",
+            "area",
+            "pop2005",
+            "name",
+            "region"
+          ],
+          "filters": "pop2005 < 50000000"
+        }
+      },
+      "srs": "EPSG:3857"
+    }
+  }
+}

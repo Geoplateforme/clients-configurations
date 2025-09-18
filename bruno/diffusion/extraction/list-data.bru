@@ -1,0 +1,20 @@
+meta {
+  name: Liste de nos données visibles (API Entrepôt)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{endpoint}}/processes?limit=50
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 50
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}

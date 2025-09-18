@@ -1,0 +1,20 @@
+meta {
+  name: Description d'une donnée extractible
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{endpoint}}/processes/:process
+  body: none
+  auth: inherit
+}
+
+params:path {
+  process: ef202bf4-faf9-4d71-95bb-080ce599ada5_5e8c9b27-4610-436d-a24c-7aa2fe5a9feb
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}

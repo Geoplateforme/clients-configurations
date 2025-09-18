@@ -1,0 +1,23 @@
+meta {
+  name: Description d'une donnée extractible (API Entrepôt)
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{entrepot}}/users/me/stored_data?type=VECTOR-DB&name=%25régions%25
+  body: none
+  auth: inherit
+}
+
+params:query {
+  type: VECTOR-DB
+  name: %25régions%25
+  ~open: false
+  ~visible_by_community: true
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}

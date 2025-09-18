@@ -1,0 +1,20 @@
+meta {
+  name: Liste de ses extractions
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{endpoint}}/jobs?statuses=RUNNING
+  body: none
+  auth: inherit
+}
+
+params:query {
+  statuses: RUNNING
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}

@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "name": "Service d'extraction",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "scripts": {
+    "moduleWhitelist": [
+      "electron"
+    ]
+  }
+}

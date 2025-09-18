@@ -1,0 +1,21 @@
+meta {
+  name: Suivi d'une extraction
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{endpoint}}/jobs/:job
+  body: none
+  auth: inherit
+}
+
+params:path {
+  job: f1ad15f0-c8eb-4fae-80ca-11df655d52fd
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}
+

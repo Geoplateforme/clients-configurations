@@ -1,0 +1,20 @@
+meta {
+  name: Résultat de l'extraction
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{endpoint}}/jobs/:job/results
+  body: none
+  auth: inherit
+}
+
+params:path {
+  job: 79b11aa5-87fe-4a63-9d72-83fbfae43b08
+}
+
+headers {
+  accept: *
+  ~user-agent: Bruno
+}
